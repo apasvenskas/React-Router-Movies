@@ -13,6 +13,7 @@ export default function Movie(props) {
     axios
       .get(`http://localhost:5001/api/movies/${id}`) // Study this endpoint with Postman
       .then(response => {
+        setMovie(response.data)//loged it 'debugger' for a breakpoint. 
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
       })
@@ -21,7 +22,7 @@ export default function Movie(props) {
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, []);
+  }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }
